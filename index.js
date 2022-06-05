@@ -7,9 +7,26 @@ const dates = [
   "2020-02-03 UTC+7", // 1580662800 (epoch time, dalam detik)
 ];
 
-// TODO: Buatlah fungsi createDate
-const createDate = null;
 
+let arr = [4, 5, 6];
+
+
+// TODO: Buatlah fungsi createDate
+function createDate(arrayDate, arrayPosition) {
+  if (isNaN(arrayPosition)) {
+    let arr = [];
+    for (const date of arrayDate) {
+      let epochTime = Date.parse(date) / 1000;
+      arr.push(epochTime);
+    }
+    arr.sort(); // [1000, 2000, 3000]
+    return arr.join('-'); // 1000-2000-3000
+  } else {
+    let date = arrayDate[arrayPosition]; // "2022-05-06 00:00:00 UTC-2"
+    let epochTime = Date.parse(date) / 1000;
+    return epochTime.toString();
+  }
+}
 // ! JANGAN DIMODIFIKASI
 (() => {
   // IIFE
